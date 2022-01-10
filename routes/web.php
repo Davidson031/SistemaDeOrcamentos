@@ -21,10 +21,14 @@ Route::get('/orcamento', [OrcamentoController::class, 'menuCadastro']);
 
 Route::get('/pesquisa', [OrcamentoController::class, 'menuPesquisa']);
 
+Route::get('/pesquisaGeral', [OrcamentoController::class, 'pesquisarOrcamento']);
+
 Route::get('/pesquisaPorCliente', [OrcamentoController::class, 'pesquisarOrcamento']);
 
 Route::get('/pesquisaPorVendedor', [OrcamentoController::class, 'pesquisarOrcamento']);
 
+Route::post('/orcamento/editado', [OrcamentoController::class, 'update']);
+
 Route::post('/orcamento/criado', [OrcamentoController::class, 'store']);
 
-
+Route::get('/editar', [OrcamentoController::class, 'editar']);

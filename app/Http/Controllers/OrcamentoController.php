@@ -26,6 +26,14 @@ class OrcamentoController extends Controller
 
     }
 
+    public function editar(Request $request){
+
+        $id = $request->query('id');
+        $orcamentos = Orcamento::where('id', $id)->get();
+        return view('editar', ['orcamentos' => $orcamentos]);
+
+    }
+
     public function pesquisarOrcamento(Request $request){
 
         $vendedor = $request->query('vendedor');
@@ -44,7 +52,8 @@ class OrcamentoController extends Controller
             return view('resultadopesquisa', ['orcamentos' => $orcamentos])->with('cliente', $cliente);
         }
 
-
+        $orcamentos = Orcamento::all();
+        return view('resultadopesquisa', ['orcamentos' => $orcamentos]);
 
     }
 
@@ -59,6 +68,25 @@ class OrcamentoController extends Controller
         $orcamento->save();
 
         return redirect('/orcamento');;
+
+
+    }
+
+    public function update(Request $request){
+
+        $id = $request->id;
+
+        //$orcamento = Orcamento::find($id);
+        $orcamento = Orcamento::where('id', $id)->first();
+
+        $orcamento->cliente = $request->cliente;
+        $orcamento->vendedor = $request->vendedor;
+        $orcamento->descricao = $request->descricao;
+        $orcamento->valor = $request->valor;
+
+        $orcamento->save();
+
+        return redirect('/pesquisaGeral');;
 
 
     }

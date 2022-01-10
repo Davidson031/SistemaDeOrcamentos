@@ -15,15 +15,18 @@
 <h1>Pesquisa de Orçamento</h1>
 
 
+<form action="/pesquisaGeral" method="GET">
+    <p>Ver todos os orçamentos: <button type="submit">Buscar</button></p>
 
+</form>
 
-<form action="/pesquisaPorVendedor" method="GET" onsubmit="return validarCampoVendedor();">
-    <p>Pesquisar por nome do vendedor: <input type="text" name="vendedor" placeholder="Nome do Vendedor"> <button type="submit">Buscar</button></p>
+<form action="/pesquisaPorVendedor" method="GET">
+    <p>Ver por nome do vendedor: <input type="text" name="vendedor" placeholder="Nome do Vendedor"> <button type="submit">Buscar</button></p>
 
 </form>
 
 <form action="/pesquisaPorCliente" method="GET">
-    <p>Pesquisar por nome do cliente: <input type="text" name="cliente" placeholder="Nome do Cliente"> <button type="submit">Buscar</button></p>
+    <p>Ver por nome do cliente: <input type="text" name="cliente" placeholder="Nome do Cliente"> <button type="submit">Buscar</button></p>
 
 </form>
 
