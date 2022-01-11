@@ -31,4 +31,8 @@ Route::post('/orcamento/editado', [OrcamentoController::class, 'update']);
 
 Route::post('/orcamento/criado', [OrcamentoController::class, 'store']);
 
+Route::post('/orcamento/removido', [OrcamentoController::class, 'delete']);
+
 Route::get('/editar', [OrcamentoController::class, 'editar']);
+
+Route::get('/remover', [OrcamentoController::class, 'remover']);

@@ -36,4 +36,6 @@
 
 </body>
 </html>
-
+<script>
+    document.getElementById('id').readOnly=true;
+</script>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Orcamento;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 
 
 class OrcamentoController extends Controller
@@ -28,9 +28,41 @@ class OrcamentoController extends Controller
 
     public function editar(Request $request){
 
-        $id = $request->query('id');
-        $orcamentos = Orcamento::where('id', $id)->get();
+        $orcamentos = Orcamento::where('id', $request->query('id'))->get();
         return view('editar', ['orcamentos' => $orcamentos]);
+
+    }
+
+
+    public function remover(Request $request){
+
+        $orcamentos = Orcamento::where('id', $request->query('id'))->get();
+        return view('remover', ['orcamentos' => $orcamentos]);
+
+    }
+
+    public function update(Request $request){
+
+        $orcamento = Orcamento::where('id', $request->id)->first();
+
+        $orcamento->cliente = $request->cliente;
+        $orcamento->vendedor = $request->vendedor;
+        $orcamento->descricao = $request->descricao;
+        $orcamento->valor = $request->valor;
+
+        $orcamento->save();
+
+        return redirect('/pesquisaGeral');;
+
+    }
+
+    public function delete(Request $request){
+
+        $orcamento = Orcamento::where('id', $request->id)->first();
+
+        $orcamento->delete();
+
+        return redirect('/');;
 
     }
 
@@ -41,18 +73,17 @@ class OrcamentoController extends Controller
 
         if(isset($vendedor)){
 
-            $orcamentos = Orcamento::where('vendedor', $vendedor)->get();
-
+            $orcamentos = Orcamento::where('vendedor', $vendedor)->orderBy('created_at', 'DESC')->get();
             return view('resultadopesquisa', ['orcamentos' => $orcamentos])->with('vendedor', $vendedor);
         }
 
         if(isset($cliente)){
 
-            $orcamentos = Orcamento::where('cliente', $cliente)->get();
+            $orcamentos = Orcamento::where('cliente', $cliente)->orderBy('created_at', 'DESC')->get();
             return view('resultadopesquisa', ['orcamentos' => $orcamentos])->with('cliente', $cliente);
         }
 
-        $orcamentos = Orcamento::all();
+        $orcamentos = Orcamento::orderBy('created_at', 'DESC')->get();
         return view('resultadopesquisa', ['orcamentos' => $orcamentos]);
 
     }
@@ -68,28 +99,9 @@ class OrcamentoController extends Controller
         $orcamento->save();
 
         return redirect('/orcamento');;
-
-
     }
 
-    public function update(Request $request){
 
-        $id = $request->id;
-
-        //$orcamento = Orcamento::find($id);
-        $orcamento = Orcamento::where('id', $id)->first();
-
-        $orcamento->cliente = $request->cliente;
-        $orcamento->vendedor = $request->vendedor;
-        $orcamento->descricao = $request->descricao;
-        $orcamento->valor = $request->valor;
-
-        $orcamento->save();
-
-        return redirect('/pesquisaGeral');;
-
-
-    }
 
 
 }

@@ -23,6 +23,7 @@
         <td>Descrição</td>
         <td>Valor</td>
         <td>Editar</td>
+        <td>Remover</td>
     </tr>
     @foreach($orcamentos as $orcamento)
     <tr>
@@ -34,6 +35,7 @@
         <td>{{$orcamento['descricao']}}</td>
         <td>{{$orcamento['valor']}}</td>
         <td><a href="/editar?id={{$orcamento->id}}">Editar</a></td>
+        <td><a href="/remover?id={{$orcamento->id}}">Remover</a></td>
         </form>
     </tr>
     @endforeach
