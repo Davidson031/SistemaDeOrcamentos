@@ -93,7 +93,6 @@ class OrcamentoController extends Controller
             $orcamentos = Orcamento::where('cliente', $cliente)->orderBy('created_at', 'DESC')->get();
             return view('resultadopesquisa', ['orcamentos' => $orcamentos])->with('cliente', $cliente);
         }
-        //2022-01-11
 
 
         if(isset($datainicio)&&isset($datafim)){

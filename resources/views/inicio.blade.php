@@ -13,7 +13,7 @@
 
 <form action="/pesquisa" method="GET">
 
-    <button type="submit">Buscar Orçamento</button>
+    <button type="submit">Exibir Orçamentos</button>
 </form>
 
 
