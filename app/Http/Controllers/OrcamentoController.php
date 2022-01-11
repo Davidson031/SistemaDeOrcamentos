@@ -11,6 +11,14 @@ class OrcamentoController extends Controller
 {
     public function index(){
 
+        /*$startDate = Carbon::createFromFormat('Y-m-d', '2022-01-09');
+        $endDate = Carbon::createFromFormat('Y-m-d', '2022-01-11');
+
+        $orcamentos = Orcamento::query()
+            ->whereDate('created_at', '>=', $startDate)
+            ->whereDate('created_at', '<=', $endDate)
+            ->get();
+        */
         return view('inicio');
 
     }
@@ -70,6 +78,9 @@ class OrcamentoController extends Controller
 
         $vendedor = $request->query('vendedor');
         $cliente = $request->query('cliente');
+        $datainicio = $request->query('data_inicio');
+        $datafim = $request->query('data_fim');
+
 
         if(isset($vendedor)){
 
@@ -82,6 +93,25 @@ class OrcamentoController extends Controller
             $orcamentos = Orcamento::where('cliente', $cliente)->orderBy('created_at', 'DESC')->get();
             return view('resultadopesquisa', ['orcamentos' => $orcamentos])->with('cliente', $cliente);
         }
+        //2022-01-11
+
+
+        if(isset($datainicio)&&isset($datafim)){
+
+            $startDate = Carbon::createFromFormat('Y-m-d', $request->query('data_inicio'));
+            $endDate = Carbon::createFromFormat('Y-m-d', $request->query('data_fim'));
+
+            $orcamentos = Orcamento::query()
+                ->whereDate('created_at', '>=', $startDate)
+                ->whereDate('created_at', '<=', $endDate)
+                ->orderBy('created_at', 'DESC')
+                ->get();
+
+
+
+            return view('resultadopesquisa', ['orcamentos' => $orcamentos])->with('cliente', $cliente);
+        }
+
 
         $orcamentos = Orcamento::orderBy('created_at', 'DESC')->get();
         return view('resultadopesquisa', ['orcamentos' => $orcamentos]);

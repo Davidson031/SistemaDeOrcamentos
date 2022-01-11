@@ -30,6 +30,11 @@
 
 </form>
 
+<form action="/pesquisaPorCliente" method="GET">
+    <p>Ver Por datas: <input type="date" class="form-control" name="data_inicio" id="data_inicio" required> <input type="date" class="form-control" name="data_fim" id="data_fim" required> <button type="submit">Buscar</button></p>
+
+</form>
+
 
 
 
