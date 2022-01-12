@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html>
 <body>
+<head>
+    <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
+</head>
 
-
-
-<form action="/orcamento" method="GET">
-
-    <button type="submit" >Cadastrar Orçamento</button>
-</form>
-
-<br>
-
-<form action="/pesquisa" method="GET">
-
-    <button type="submit">Exibir Orçamentos</button>
-</form>
+<ul>
+    <li><a href="/orcamento">Cadastrar novo Orçamento</a></li>
+    <li><a href="/pesquisa">Exibir Orçamentos</a></li>
+</ul>
 
 
 </body>

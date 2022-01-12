@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Orcamento;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreOrcamento;
 use Carbon\Carbon;
 
 
@@ -117,7 +118,7 @@ class OrcamentoController extends Controller
 
     }
 
-    public function store(Request $request){
+    public function store(StoreOrcamento $request){
         $orcamento = new Orcamento;
 
         $orcamento->cliente = $request->cliente;
@@ -127,7 +128,7 @@ class OrcamentoController extends Controller
 
         $orcamento->save();
 
-        return redirect('/orcamento');;
+        return redirect('/');;
     }
 
 
