@@ -3,8 +3,9 @@
 - Aplicação usa jQuery UI e DataTables mas que foram referenciadas por CDN, não sendo necessária nenhuma ação adicional aqui.
 - Utiliza também a API Carbon para mexer com as datas, mas que já vem embutida no framework.
 
+Sobre a organização, deixei um único Controller cuidando dos orçamentos e separei seus métodos entre os que apenas exibem uma view (editarOrcamento, pesquisarOrcamento, etc) e os que farão de fato uso do Model para as operações no banco de dados (update, store, delete, etc). O usuário entra na rota inicial, clica em algo e é redirecionado a uma dessas views de exibição, o user então clica no que quer fazer, preenche os dados pedidos na view de exibição e então, aceitadas as devidas validações, é redirecionado novamente, os métodos de operação no BD são executados e uma confirmação é enviada ao usuário. Por serem operações simples não criei views exclusivas para confirmação, então as mensagens de confirmação (ou erro) apareçerão nessas mesmas views anteriores, por pop-up ou elementos CSS.
 
-
+vídeo de 2:25s com a execução do projeto, inclusive em situações de erro: https://youtu.be/mihhsRxqO5c
 
 
 
