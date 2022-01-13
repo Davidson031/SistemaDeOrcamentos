@@ -17,7 +17,7 @@
     <input type="submit" value="Inicio" />
 </form>
 
-
+    {{--Checa se veio algum erro de FormRequest na view e, se tiver vindo, percorre a lista e as joga em uma caixa de diálogo do jQuery--}}
     @if ($errors->any())
         <div id="caixadeerro" title="Erro">
         @foreach ($errors->all() as $error)
@@ -27,6 +27,7 @@
     @endif
 
 
+{{--Formulários com os campos e botões de pesquisa de orçamentos--}}
 <h1>Pesquisa de Orçamento</h1>
 
 
@@ -48,7 +49,7 @@
 
 
 
-
+{{--JS de ativação da caixa de dialogo jQuery--}}
 <script>
     $( function() {
         $( "#caixadeerro" ).dialog();

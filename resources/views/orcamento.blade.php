@@ -11,14 +11,14 @@
 </head>
 <body>
 
-
+    {{--Link para a pagina inicial da aplicação--}}
     <form action="/">
         <input type="submit" value="Inicio" />
     </form>
 
+    {{--Checa se veio algum erro de FormRequest na view e, se tiver vindo, percorre a lista e as joga em uma caixa de diálogo do jQuery--}}
     @if ($errors->any())
     <div id="caixadeerro" title="Erro">
-
             @foreach ($errors->all() as $error)
             {{ $error }}<br>
             @endforeach
@@ -26,7 +26,7 @@
     </div>
     @endif
 
-
+    {{--Checa se veio algum alerta por flash message na view e, se tiver vindo, a exibe.--}}
     @foreach (['fail', 'success'] as $msg)
         @if(Session::has('alert-'.$msg))
             <div class="success">
@@ -37,7 +37,7 @@
     @endforeach
 
 
-
+    {{--Formulário de cadastro de orçamentos--}}
     <form action="/orcamento/criado" method="POST" enctype="'multipart/form-data">
     @csrf
         <h1>Cadastro de Orçamento</h1><br>
@@ -52,7 +52,7 @@
         <button type="submit">Cadastrar Orçamento</button>
     </form>
 
-
+    {{--JS de ativação da caixa de dialogo jQuery--}}
 <script>
     $( function() {
         $("#caixadeerro").dialog();

@@ -9,14 +9,15 @@
 </head>
 <body>
 
+
+    {{--Link para a pagina inicial da aplicação--}}
     <form action="/">
         <input type="submit" value="Inicio" />
     </form>
 
-
+    {{--Tabela com os dados do orçamento sendo deletado, já virão preenchidos com os dados vindos do controller--}}
     <form action="/orcamento/editado" method="POST" enctype="'multipart/form-data">
         @csrf
-
             <h1>Edição de Orçamento</h1>
             <p>ID: <input id="id" type="text" name="id" value="{{$orcamento['id']}}"></p>
             <p>Cliente: <input id ="id_cliente" type="text" name="cliente" placeholder="Nome do Cliente" value="{{$orcamento['cliente']}}"></p>

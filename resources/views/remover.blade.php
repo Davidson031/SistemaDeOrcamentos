@@ -9,11 +9,12 @@
 </head>
 <body>
 
+    {{--Link para a pagina inicial da aplicação--}}
     <form action="/">
         <input type="submit" value="Inicio" />
     </form>
 
-
+    {{--Formulario para a exclusão de um orçamento, já será preenchido com os dados vindos do Controller e não permitirá a edição--}}
     <form action="/orcamento/removido" method="POST" enctype="'multipart/form-data">
         @csrf
         <h1>Remoção de Orçamento</h1><br><br>
@@ -35,6 +36,7 @@
 </body>
 </html>
 
+{{--JS para bloquear os campos--}}
 <script>
     document.getElementById('id').readOnly = true;
     document.getElementById('nome_cliente').readOnly= true;

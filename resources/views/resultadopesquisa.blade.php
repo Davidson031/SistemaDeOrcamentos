@@ -12,13 +12,14 @@
 </head>
 <body>
 
+{{--Link para a pagina inicial da aplicação--}}
 <form action="/">
     <input type="submit" value="Inicio" />
 </form>
 
 <h1>Orçamentos</h1><br>
 
-
+        {{--Checa se veio algum alerta por flash message na view e, se tiver vindo, a exibe.--}}
         @foreach (['fail', 'success'] as $msg)
             @if(Session::has('alert-'.$msg))
                 <div class="success">
@@ -29,6 +30,7 @@
         @endforeach
 
 
+{{--Criando a tabela com a exibição dos registros.--}}
 <table id="tabela">
 
     <thead>
@@ -45,6 +47,7 @@
     </tr>
     </thead>
     <tbody>
+    {{--Populando a tabela percorrendo o array de registros vindo do controle.--}}
     @foreach($orcamentos as $orcamento)
     <tr>
         <form action="/editar" method="GET">
@@ -63,14 +66,12 @@
 </table>
 
 
-
+    {{--JS para aplicar o jQuery na tabela HTML, aplicando ordem pelo campo de datas e deixando na ordem decrescente.--}}
 <script>
     $(document).ready( function () {
         $('#tabela').DataTable({"order": [[1, "desc"]]});
     } );
 </script>
-
-
 
 </body>
 </html>
