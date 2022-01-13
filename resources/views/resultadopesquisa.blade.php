@@ -19,14 +19,14 @@
 <h1>Orçamentos</h1><br>
 
 
-@foreach (['fail', 'success'] as $msg)
-    @if(Session::has('alert-'.$msg))
-        <div class="success">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            {{Session::get('alert-' . $msg)}}
-        </div>
-    @endif
-@endforeach
+        @foreach (['fail', 'success'] as $msg)
+            @if(Session::has('alert-'.$msg))
+                <div class="success">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    {{Session::get('alert-' . $msg)}}
+                </div>
+            @endif
+        @endforeach
 
 
 <table id="tabela">
@@ -57,8 +57,6 @@
             <td><a href="/editar?id={{$orcamento->id}}">Editar</a></td>
             <td><a href="/remover?id={{$orcamento->id}}">Remover</a></td>
         </form>
-
-
     </tr>
     @endforeach
     </tbody>
@@ -73,12 +71,6 @@
 </script>
 
 
-<script>
-    $( function() {
-        $( "#caixadeerro" ).dialog();
-    } );
-</script>
+
 </body>
-
-
 </html>

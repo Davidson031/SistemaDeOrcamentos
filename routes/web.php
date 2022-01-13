@@ -17,17 +17,21 @@ use App\Http\Controllers\OrcamentoController;
 
 Route::get('/', [OrcamentoController::class, 'index']);
 
-Route::get('/orcamento', [OrcamentoController::class, 'menuCadastro']);
+Route::get('/orcamento', [OrcamentoController::class, 'salvarOrcamento']);
 
-Route::get('/pesquisa', [OrcamentoController::class, 'menuPesquisa']);
+Route::get('/pesquisa', [OrcamentoController::class, 'pesquisarOrcamento']);
 
-Route::get('/pesquisaGeral', [OrcamentoController::class, 'pesquisarOrcamento']);
+Route::get('/editar', [OrcamentoController::class, 'editarOrcamento']);
 
-Route::get('/pesquisaPorCliente', [OrcamentoController::class, 'pesquisarOrcamento']);
+Route::get('/remover', [OrcamentoController::class, 'removerOrcamento']);
+
+Route::get('/pesquisaGeral', [OrcamentoController::class, 'pesquisarTudo']);
+
+Route::get('/pesquisaPorCliente', [OrcamentoController::class, 'pesquisarOrcamentoPorNome']);
+
+Route::get('/pesquisaPorVendedor', [OrcamentoController::class, 'pesquisarOrcamentoPorNome']);
 
 Route::get('/pesquisaPorData', [OrcamentoController::class, 'pesquisarOrcamentoPorData']);
-
-Route::get('/pesquisaPorVendedor', [OrcamentoController::class, 'pesquisarOrcamento']);
 
 Route::post('/orcamento/editado', [OrcamentoController::class, 'update']);
 
@@ -35,7 +39,5 @@ Route::post('/orcamento/criado', [OrcamentoController::class, 'store']);
 
 Route::post('/orcamento/removido', [OrcamentoController::class, 'delete']);
 
-Route::get('/editar', [OrcamentoController::class, 'editar']);
 
-Route::get('/remover', [OrcamentoController::class, 'remover']);
 

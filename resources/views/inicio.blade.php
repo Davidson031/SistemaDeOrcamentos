@@ -7,7 +7,7 @@
 
 <ul>
     <li><a href="/orcamento">Cadastrar novo Orçamento</a></li>
-    <li><a href="/pesquisa">Exibir Orçamentos</a></li>
+    <li><a href="/pesquisa">Exibir e Editar/Excluir Orçamentos</a></li>
 </ul>
 
 

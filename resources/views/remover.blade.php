@@ -19,13 +19,11 @@
         <h1>Remoção de Orçamento</h1><br><br>
         <div class="info">
 
-            @foreach($orcamentos as $orcamento)
             <p>ID: <input id="id" type="text" name="id" value="{{$orcamento['id']}}"></p>
-            <p>Cliente: <input id ="nome_cliente" type="text" name="cliente" placeholder="Nome do Cliente" value="{{$orcamento['cliente']}}"></p>
-            <p>Vendedor: <input id="nome_vendedor" type="text" name="vendedor" placeholder="Nome do Vendedor" value="{{$orcamento['vendedor']}}"></p>
-            <p>Descrição: <input id="nome_descricao" type="text" name="descricao" placeholder="Descricao" value="{{$orcamento['descricao']}}"></p>
-            <p>Valor: <input id="valor" type="number" name="valor" placeholder="0" value="{{$orcamento['valor']}}"></p><br><br>
-            @endforeach
+            <p>Cliente: <input id ="id_cliente" type="text" name="cliente" placeholder="Nome do Cliente" value="{{$orcamento['cliente']}}"></p>
+            <p>Vendedor: <input id="id_vendedor" type="text" name="vendedor" placeholder="Nome do Vendedor" value="{{$orcamento['vendedor']}}"></p>
+            <p>Descrição: <input id="id_descricao" type="text" name="descricao" placeholder="Descricao" value="{{$orcamento['descricao']}}"></p>
+            <p>Valor: <input id="id_valor" type="number" name="valor" placeholder="0" value="{{$orcamento['valor']}}"></p><br><br>
         </div>
 
         <button type="submit">Confirmar Remoção</button>
