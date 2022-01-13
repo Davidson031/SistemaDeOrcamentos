@@ -1,3 +1,35 @@
+-Utilizado o MySQL/Apache pelo XAMPP, endereço localhost e portas padrões (127.0.0.1 e 3306) com um BD chamado orc_db.
+-Migrations para a criação das colunas da tabela estão em sua pasta padrão.
+- Aplicação usa jQuery UI e DataTables mas que foram referenciadas por CDN, não sendo necessária nenhuma ação adicional aqui.
+- Utiliza também a API Carbon para mexer com as datas, mas que já vem embutida no framework.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
