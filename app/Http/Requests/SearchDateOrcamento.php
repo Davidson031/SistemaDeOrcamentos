@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreOrcamento extends FormRequest
+class SearchDateOrcamento extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,13 @@ class StoreOrcamento extends FormRequest
     public function rules()
     {
         return [
-            'cliente' => 'required|alpha_dash',
-            'vendedor' => 'required|alpha_dash',
-            'descricao' => 'required',
-            'valor' => 'required'
+            'data_inicio' => 'required|date', 'data_fim' => 'required|date|after_or_equal:data_inicio'
         ];
     }
 
     public function messages() {
-        return [  'required' => 'O campo :attribute é obrigatório',
-                  'alpha_dash' => 'O campo :attribute nao pode ter espaços em branco ou caracteres especiais',
-                   ];
+        return [
+            'after_or_equal'=>'A data final tem que ser maior ou igual a data inicial',
+        ];
     }
 }

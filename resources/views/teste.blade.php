@@ -126,3 +126,25 @@
 
 </body>
 </html>
+
+
+**************
+
+TESTEORÇAMENTO DATA CONTROLLER
+
+
+if(isset($datainicio)&&isset($datafim)){
+
+$startDate = Carbon::createFromFormat('Y-m-d', $request->query('data_inicio'));
+$endDate = Carbon::createFromFormat('Y-m-d', $request->query('data_fim'));
+
+$orcamentos = Orcamento::query()
+->whereDate('created_at', '>=', $startDate)
+->whereDate('created_at', '<=', $endDate)
+->orderBy('created_at', 'DESC')
+->get();
+
+
+
+return view('resultadopesquisa', ['orcamentos' => $orcamentos])->with('cliente', $cliente);
+}

@@ -4,7 +4,7 @@
     <script src="/js/jquery-3.6.0.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
-
+    <link rel="stylesheet" href="{{asset('css/alertas.css')}}" type="text/css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cadastro de Orçamento</title>
@@ -17,6 +17,17 @@
 </form>
 
 <h1>Orçamentos</h1><br>
+
+
+@foreach (['fail', 'success'] as $msg)
+    @if(Session::has('alert-'.$msg))
+        <div class="success">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            {{Session::get('alert-' . $msg)}}
+        </div>
+    @endif
+@endforeach
+
 
 <table id="tabela">
 
@@ -61,6 +72,12 @@
     } );
 </script>
 
+
+<script>
+    $( function() {
+        $( "#caixadeerro" ).dialog();
+    } );
+</script>
 </body>
 
 

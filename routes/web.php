@@ -25,6 +25,8 @@ Route::get('/pesquisaGeral', [OrcamentoController::class, 'pesquisarOrcamento'])
 
 Route::get('/pesquisaPorCliente', [OrcamentoController::class, 'pesquisarOrcamento']);
 
+Route::get('/pesquisaPorData', [OrcamentoController::class, 'pesquisarOrcamentoPorData']);
+
 Route::get('/pesquisaPorVendedor', [OrcamentoController::class, 'pesquisarOrcamento']);
 
 Route::post('/orcamento/editado', [OrcamentoController::class, 'update']);
@@ -36,3 +38,4 @@ Route::post('/orcamento/removido', [OrcamentoController::class, 'delete']);
 Route::get('/editar', [OrcamentoController::class, 'editar']);
 
 Route::get('/remover', [OrcamentoController::class, 'remover']);
+
